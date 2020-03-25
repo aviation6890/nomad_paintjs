@@ -1,5 +1,9 @@
-const convas = document.getElementById("jsCanvas");
-const ctx = convas.getContext("2d");
+const canvas = document.getElementById("jsCanvas");
+const ctx = canvas.getContext("2d");
+console.log(ctx);
+
+canvas.width = 700;
+canvas.height = 700;
 
 ctx.strokeStyle ="#2c2c2c";
 ctx.lineWidth = 2.5;
@@ -23,6 +27,7 @@ function onMouseMove(event){
         ctx.moveTo(x,y);
     }else {
         ctx.lineTo(x,y);
+        ctx.stroke();
     }
 }
 
@@ -30,9 +35,9 @@ function onMouseDown(evnet){
     painting = true;
 }
 
-if(convas){
-    convas.addEventListener("mousemove", onMouseMove);
-    convas.addEventListener("mousedown", startPainting) //mousedown: 클릭했을때 발생하는 event.
-    convas.addEventListener("mouseup", stopPainting);
-    convas.addEventListener("mouseleave", stopPainting);
+if(canvas){
+    canvas.addEventListener("mousemove", onMouseMove);
+    canvas.addEventListener("mousedown", startPainting) //mousedown: 클릭했을때 발생하는 event.
+    canvas.addEventListener("mouseup", stopPainting);
+    canvas.addEventListener("mouseleave", stopPainting);
 }
